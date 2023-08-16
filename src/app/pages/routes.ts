@@ -1,12 +1,13 @@
 import { Route } from '@angular/router';
+import {CharacterComponent} from "./character/character.component";
 
 
 export const routes: Route[] = [
-  // {
-  //   path: '',
-  //   loadComponent: () => PlaygroundComponent,
-  //   canActivate: [() => isLogged()],
-  // },
+  {
+    path: '',
+    loadComponent: () => CharacterComponent,
+    canActivate: [() => true],
+  },
   // {
   //   path: 'dimension-c137',
   //   loadComponent: () => DimensionC137Component,
