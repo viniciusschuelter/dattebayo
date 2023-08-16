@@ -1,6 +1,5 @@
 import { ShinobiInterface } from './shared.interface';
 
-
 export interface CharacterInterface extends ShinobiInterface {
   debut?: { [s: string]: string };
   personal?: string[];

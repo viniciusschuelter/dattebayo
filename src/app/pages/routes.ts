@@ -8,19 +8,25 @@ export const routes: Route[] = [
     loadComponent: () => CharacterComponent,
     canActivate: [() => true],
   },
-  // {
-  //   path: 'dimension-c137',
-  //   loadComponent: () => DimensionC137Component,
-  //   canActivate: [() => isLogged()],
-  // },
-  // {
-  //   path: 'lazy-renderer',
-  //   loadComponent: () => LazyRendererComponent,
-  //   canActivate: [() => isLogged()],
-  // },
-  // {
-  //   path: 'login',
-  //   loadComponent: () => LoginComponent,
-  // },
+  {
+    path: 'clans',
+    loadComponent: () => CharacterComponent,
+    canActivate: [() => true],
+  },
+  {
+    path: 'kara',
+    loadComponent: () => CharacterComponent,
+    canActivate: [() => true],
+  },
+  {
+    path: 'kekkeigenkai',
+    loadComponent: () => CharacterComponent,
+    canActivate: [() => true],
+  },
+  {
+    path: 'teams',
+    loadComponent: () => CharacterComponent,
+    canActivate: [() => true],
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ]

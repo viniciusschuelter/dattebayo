@@ -1,3 +1,3 @@
 import { CharacterInterface } from './character.interface';
 
-export type TailedInterface = Partial<CharacterInterface>;
+export type AkatsukiInterface = Partial<CharacterInterface>;
