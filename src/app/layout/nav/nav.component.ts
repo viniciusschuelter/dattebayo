@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {NgFor} from "@angular/common";
-import {RouterLink, RouterModule} from "@angular/router";
+import { NgFor } from "@angular/common";
+import { RouterLink } from "@angular/router";
 
 @Component({
   host: { class: 'block h-[80px]' },
@@ -11,7 +11,7 @@ import {RouterLink, RouterModule} from "@angular/router";
     <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="#" class="flex items-center ">
-          <img src="assets/images/logo.png" class="h-[8rem]" alt="Dattebayo Logo">
+          <img src="assets/images/logo.png" class="h-[6rem]" alt="Dattebayo Logo">
         </a>
         <div class="flex md:order-2">
           <a href="https://github.com/viniciusschuelter/dattebayo" class="text-gray-900 hover:text-gray-600 dark:hover:text-white">
