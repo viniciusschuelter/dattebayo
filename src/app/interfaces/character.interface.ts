@@ -1,4 +1,4 @@
-import { ShinobiInterface } from './shared.interface';
+import { PageResponse, ShinobiInterface } from './shared.interface';
 
 export interface CharacterInterface extends ShinobiInterface {
   debut?: { [s: string]: string };
@@ -9,4 +9,9 @@ export interface CharacterInterface extends ShinobiInterface {
   rank?: { [s: string]: string };
   uniqueTraits?: string[];
   voiceActors?: { [s: string]: string };
+}
+
+export interface ResponseCharacter extends PageResponse {
+  characters: CharacterInterface[];
+  totalCharacters: number;
 }

@@ -4,11 +4,11 @@ import { Component } from '@angular/core';
   host: { class: 'block h-[100vh]' },
   selector: 'app-root',
   template: `
-        <app-nav></app-nav>
-        <main class="h-full">
-          <router-outlet></router-outlet>
-        </main>
-        <app-footer></app-footer>
-    `
+    <app-nav></app-nav>
+    <main class="h-full">
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
+  `,
 })
 export class AppComponent {}

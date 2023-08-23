@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
-import { ClanComponent } from './clan.component';
+import { KaraComponent } from './kara.component';
 import { Route, RouterModule } from '@angular/router';
 
 const routes: Route[] = [
   {
     path: '',
-    component: ClanComponent,
+    component: KaraComponent,
   },
 ];
 
 @NgModule({
-  declarations: [ClanComponent],
+  declarations: [KaraComponent],
   imports: [RouterModule.forChild(routes)],
-  exports: [ClanComponent],
+  exports: [KaraComponent],
 })
-export class ClanModule {}
+export class KaraModule {}

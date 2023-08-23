@@ -1,7 +1,7 @@
 {
   "/api": {
     "target": "https://narutodb.xyz",
-    "secure": false,
+    "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
   }
