@@ -3,7 +3,12 @@ import { CharacterService } from '../../services/character.service';
 
 @Component({
   template: `
-    <ng-container *ngIf="characters$ | async as characters"> </ng-container>
+    <div class="flex flex-wrap" *ngIf="characters$ | async as characters">
+      <app-character-card
+        *ngFor="let character of characters"
+        [character]="character"
+      ></app-character-card>
+    </div>
   `,
 })
 export class CharacterComponent {

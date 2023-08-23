@@ -3,7 +3,7 @@ import { NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  host: { class: 'block h-[80px]' },
+  host: { class: 'block h-[8rem]' },
   selector: 'app-nav',
   standalone: true,
   imports: [NgFor, RouterLink],

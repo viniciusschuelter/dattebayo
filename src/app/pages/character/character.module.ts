@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CharacterComponent } from './character.component';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { Route, RouterModule } from '@angular/router';
+import { CharacterCardComponent } from '../../components/character-card/character-card.component';
 
 const routes: Route[] = [
   {
@@ -12,6 +13,12 @@ const routes: Route[] = [
 
 @NgModule({
   declarations: [CharacterComponent],
-  imports: [NgIf, AsyncPipe, RouterModule.forChild(routes)],
+  imports: [
+    NgIf,
+    NgFor,
+    AsyncPipe,
+    CharacterCardComponent,
+    RouterModule.forChild(routes),
+  ],
 })
 export class CharacterModule {}
