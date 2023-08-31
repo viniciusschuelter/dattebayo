@@ -5,6 +5,11 @@ const routes: Route[] = [
   {
     path: '',
     loadChildren: () =>
+      import('./pages/about/about.module').then((m) => m.AboutModule),
+  },
+  {
+    path: 'character',
+    loadChildren: () =>
       import('./pages/character/character.module').then(
         (m) => m.CharacterModule,
       ),

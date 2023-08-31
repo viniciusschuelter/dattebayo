@@ -71,7 +71,7 @@ import { RouterLink } from '@angular/router';
           id="navbar-sticky"
         >
           <ul
-            class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+            class="date-font flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
           >
             <li *ngFor="let item of menuItems">
               <a
@@ -89,14 +89,15 @@ import { RouterLink } from '@angular/router';
 })
 export class NavComponent {
   menuItems: { name: string; link: string }[] = [
-    { name: 'Characters', link: '/' },
-    { name: 'Clans', link: '/clans' },
-    { name: 'Kara', link: '/kara' },
-    { name: 'Kekkeigenkai', link: '/kekkeigenkai' },
-    { name: 'Tailed Beast', link: '/tailed-beast' },
-    { name: 'Teams', link: '/teams' },
-    { name: 'Villages', link: '/villages' },
-    { name: 'Akatsuki', link: '/akatsuki' },
+    { name: 'About', link: '/' },
+    // { name: 'Characters', link: '/character' },
+    // { name: 'Clans', link: '/clans' },
+    // { name: 'Kara', link: '/kara' },
+    // { name: 'Kekkeigenkai', link: '/kekkeigenkai' },
+    // { name: 'Tailed Beast', link: '/tailed-beast' },
+    // { name: 'Teams', link: '/teams' },
+    // { name: 'Villages', link: '/villages' },
+    // { name: 'Akatsuki', link: '/akatsuki' },
   ];
 
   menuItemClass =

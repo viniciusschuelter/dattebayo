@@ -12,7 +12,9 @@ export class CharacterService {
 
   getAllCharacters(): Observable<CharacterInterface[]> {
     return this.http
-      .get<ResponseCharacter>('/api/character')
+      .get<ResponseCharacter>(
+        'https://dattebayo-api.onrender.com/characters?name=kage',
+      )
       .pipe(map((_) => _.characters));
   }
 }

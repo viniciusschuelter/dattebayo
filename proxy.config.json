@@ -1,6 +1,6 @@
 {
-  "/api": {
-    "target": "https://narutodb.xyz",
+  "/": {
+    "target": "https://dattebayo-api.onrender.com",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  host: { class: 'block h-[100vh]' },
+  host: { class: 'block' },
   selector: 'app-root',
   template: `
     <app-nav></app-nav>
