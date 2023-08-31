@@ -13,6 +13,11 @@ const routes: Route[] = [
       import('./pages/docs/docs.module').then((m) => m.DocsModule),
   },
   {
+    path: 'support',
+    loadChildren: () =>
+      import('./pages/support/support.module').then((m) => m.SupportModule),
+  },
+  {
     path: 'character',
     loadChildren: () =>
       import('./pages/character/character.module').then(

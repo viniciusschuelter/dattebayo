@@ -91,6 +91,7 @@ export class NavComponent {
   menuItems: { name: string; link: string }[] = [
     { name: 'About', link: '/' },
     { name: 'Docs', link: '/docs' },
+    { name: 'Support', link: '/support' },
     // { name: 'Characters', link: '/character' },
     // { name: 'Clans', link: '/clans' },
     // { name: 'Kara', link: '/kara' },
