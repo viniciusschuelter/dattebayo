@@ -1,0 +1,112 @@
+<article
+  class="mx-auto min-w-0 max-w-6xl px-6 pt-4 md:px-12 markdown prose w-full break-words dark:prose-invert light"
+>
+  <h1
+    class="mt-3 text-4xl tracking-tight text-slate-900 dark:text-slate-100 date-font"
+  >
+    DOCS
+  </h1>
+  <strong>Dattebayo API Documentation</strong>
+  <p>
+    Welcome to the Dattebayo API documentation! This documentation provides a
+    comprehensive guide to accessing data from the Naruto universe via our API.
+    The base URL for the API is
+    <code>https://dattebayo-api.onrender.com</code>.
+  </p>
+  <ol>
+    <li><a href="docs#introduction">Introduction</a></li>
+    <li>
+      <a href="docs#collections">Collections</a>
+      <ul>
+        <li *ngFor="let item of docsCollectionsMock">
+          <a class="capitalize" href="docs#{{ item.enum }}">{{ item.title }}</a>
+        </li>
+      </ul>
+    </li>
+    <a name="introduction"></a>
+    <li>
+      <a href="docs#endpoints">Endpoints</a>
+      <ul>
+        <li><a href="docs#get-all-items">Get All Items</a></li>
+        <li>
+          <a href="docs#get-items-by-ids">Get Items by IDs</a>
+        </li>
+      </ul>
+    </li>
+  </ol>
+  <h2>Introduction</h2>
+  <p>
+    The Dattebayo API is designed to provide developers with access to a rich
+    array of data from the Naruto anime. With our API, you can retrieve
+    information about characters, clans, villages, kekkeigenkai, tailed beasts,
+    teams, Akatsuki, and Kara.
+  </p>
+  <a name="collections"></a>
+  <h2>Collections</h2>
+  <ng-container *ngFor="let item of docsCollectionsMock">
+    <a [name]="item.enum"></a>
+    <h3 class="capitalize">{{ item.title }}</h3>
+    <p>{{ item.description }}</p>
+    <h4>Endpoints</h4>
+    <ul>
+      <li>
+        <p>
+          <strong
+            >Get All <span class="capitalize">{{ item.title }}</span></strong
+          >: <code>GET /{{ item.enum }}</code>
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong
+            >Get <span class="capitalize">{{ item.title }}</span> by IDs</strong
+          >:
+          <code>GET /{{ item.enum }}/ids</code>
+        </p>
+      </li>
+    </ul>
+  </ng-container>
+  <a name="endpoints"></a>
+  <h2>Endpoints</h2>
+  <a name="get-all-items"></a>
+  <h3>Get All Items</h3>
+  <p>Retrieve paginated items from a collection.</p>
+  <ul>
+    <li>
+      <strong>Endpoint</strong>: <code>{{ pathAPI }}</code>
+    </li>
+    <li><strong>Method</strong>: GET</li>
+    <li>
+      <strong>Query Parameters</strong>:
+      <ul>
+        <li><code>page</code>: Current page number.</li>
+        <li><code>limit</code>: Number of items per page.</li>
+        <li><code>name</code>: (Optional) Filter items by name.</li>
+      </ul>
+    </li>
+  </ul>
+  <a name="get-items-by-ids"></a>
+  <h3>Get Items by IDs</h3>
+  <p>Retrieve items by their IDs.</p>
+  <ul>
+    <li>
+      <strong>Endpoint</strong>: <code>{{ pathAPIIds }}</code>
+    </li>
+    <li><strong>Method</strong>: GET</li>
+    <li>
+      <strong>Param</strong>:
+      <ul>
+        <li><code>ids</code>: Array of item IDs.</li>
+      </ul>
+    </li>
+  </ul>
+  <hr />
+  <p class="mt-4 italic">
+    Feel free to modify this template to best fit your API's structure and your
+    branding. Make sure to provide clear examples of how to use each endpoint
+    with appropriate request and response formats. Remember that documentation
+    is a living resource, so as you make updates or add new features to your
+    API, keep your documentation up-to-date as well. This ensures that
+    developers can use your API effectively and without confusion.
+  </p>
+</article>

@@ -90,6 +90,7 @@ import { RouterLink } from '@angular/router';
 export class NavComponent {
   menuItems: { name: string; link: string }[] = [
     { name: 'About', link: '/' },
+    { name: 'Docs', link: '/docs' },
     // { name: 'Characters', link: '/character' },
     // { name: 'Clans', link: '/clans' },
     // { name: 'Kara', link: '/kara' },
