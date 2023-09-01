@@ -7,6 +7,7 @@ export interface ShinobiInterface {
 export interface PageResponse {
   currentPage: number;
   pageSize: number;
+  total: number;
 }
 
 export enum CollectionNameEnum {

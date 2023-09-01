@@ -5,5 +5,4 @@ export type TailedInterface = Partial<CharacterInterface>;
 
 export interface ResponseTailed extends PageResponse {
   tailedBeasts: TailedInterface[];
-  totalTailedBeasts: number;
 }

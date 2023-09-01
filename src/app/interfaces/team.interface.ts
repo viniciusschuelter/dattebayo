@@ -1,11 +1,9 @@
 import { PageResponse, ShinobiInterface } from './shared.interface';
-import { CharacterInterface } from './character.interface';
 
 export interface TeamInterface extends ShinobiInterface {
-  characters?: CharacterInterface[];
+  characters?: string[];
 }
 
 export interface ResponseTeam extends PageResponse {
   teams: TeamInterface[];
-  totalTeams: number;
 }

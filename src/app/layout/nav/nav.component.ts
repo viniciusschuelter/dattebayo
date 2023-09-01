@@ -91,15 +91,8 @@ export class NavComponent {
   menuItems: { name: string; link: string }[] = [
     { name: 'About', link: '/' },
     { name: 'Docs', link: '/docs' },
+    { name: 'Cards', link: '/cards' },
     { name: 'Support', link: '/support' },
-    // { name: 'Characters', link: '/character' },
-    // { name: 'Clans', link: '/clans' },
-    // { name: 'Kara', link: '/kara' },
-    // { name: 'Kekkeigenkai', link: '/kekkeigenkai' },
-    // { name: 'Tailed Beast', link: '/tailed-beast' },
-    // { name: 'Teams', link: '/teams' },
-    // { name: 'Villages', link: '/villages' },
-    // { name: 'Akatsuki', link: '/akatsuki' },
   ];
 
   menuItemClass =

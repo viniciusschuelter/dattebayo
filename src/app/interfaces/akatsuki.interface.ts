@@ -5,5 +5,4 @@ export type AkatsukiInterface = Partial<CharacterInterface>;
 
 export interface ResponseAkatsuki extends PageResponse {
   akatsuki: AkatsukiInterface[];
-  totalMembers: number;
 }

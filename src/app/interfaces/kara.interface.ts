@@ -8,5 +8,4 @@ export interface KaraInterface extends CharacterInterface {
 
 export interface ResponseKara extends PageResponse {
   kara: KaraInterface[];
-  totalKara: number;
 }

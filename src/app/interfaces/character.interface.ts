@@ -13,5 +13,4 @@ export interface CharacterInterface extends ShinobiInterface {
 
 export interface ResponseCharacter extends PageResponse {
   characters: CharacterInterface[];
-  totalCharacters: number;
 }
