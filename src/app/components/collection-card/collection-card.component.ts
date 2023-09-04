@@ -1,14 +1,19 @@
 import { Component, Input } from '@angular/core';
 import { CharacterInterface } from '../../interfaces/character.interface';
+import { CollectionNameEnum } from '../../interfaces/shared.interface';
 
 @Component({
   standalone: true,
   selector: 'app-collection-card',
   template: `
-    <div class="flex-shrink-0 h-80 m-3 rounded-3xl relative">
+    <div class="flex-shrink-0 w-[320px] h-100 m-3 rounded-3xl relative">
       <img
         class="w-full h-full rounded-3xl"
-        [src]="collection.images[0] || ''"
+        [src]="
+          collection.images && collection.images[0]
+            ? collection.images[0]
+            : 'assets/images/' + collectionName + '.jpg'
+        "
         alt="img"
       />
       <div
@@ -25,4 +30,5 @@ import { CharacterInterface } from '../../interfaces/character.interface';
 })
 export class CollectionCardComponent {
   @Input({ required: true }) collection!: CharacterInterface;
+  @Input({ required: true }) collectionName!: CollectionNameEnum | null;
 }

@@ -7,6 +7,7 @@ import {
   debounce,
   interval,
   switchMap,
+  tap,
 } from 'rxjs';
 
 @Component({
@@ -17,17 +18,22 @@ import {
         (changeCollectionEnum)="collectionName$.next($event)"
       ></app-collection-search>
       <div class="flex flex-wrap" *ngIf="collection$ | async as collections">
-        <app-collection-card
-          *ngFor="let collection of collections"
-          [collection]="collection"
-        ></app-collection-card>
+        <ng-container *ngIf="!loading">
+          <app-collection-card
+            *ngFor="let collection of collections"
+            [collection]="collection"
+            [collectionName]="collectionName$ | async"
+          ></app-collection-card>
+        </ng-container>
       </div>
+      <app-collection-loading *ngIf="loading"></app-collection-loading>
     </div>
   `,
 })
 export class CardsComponent {
   private collectionService = inject(CollectionService);
 
+  loading = true;
   searchTerm$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   collectionName$: BehaviorSubject<CollectionNameEnum> =
     new BehaviorSubject<CollectionNameEnum>(CollectionNameEnum.characters);
@@ -36,8 +42,11 @@ export class CardsComponent {
     this.collectionName$,
     this.searchTerm$.pipe(debounce(() => interval(400))),
   ]).pipe(
+    tap(() => (this.loading = true)),
     switchMap(([colection, term]) =>
-      this.collectionService.getAllCollection(colection, term),
+      this.collectionService
+        .getAllCollection(colection, term)
+        .pipe(tap(() => (this.loading = false))),
     ),
   );
 }

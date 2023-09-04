@@ -4,20 +4,19 @@ import {
   collectionNames,
 } from '../../interfaces/shared.interface';
 import { NgFor } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
   selector: 'app-collection-search',
-  imports: [NgFor, FormsModule],
+  imports: [NgFor],
   template: `
-    <div class="relative mt-2 rounded-md shadow-sm">
+    <div class="relative mt-2 rounded-md shadow-sm mb-4">
       <input
         type="text"
         name="collection"
         id="collection"
-        [ngModel]="''"
-        (ngModelChange)="changeSearchTerm.emit($event)"
+        [value]=""
+        (keydown)="onChangeSearch($event.target)"
         class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
         placeholder="Search in your collection"
       />
@@ -44,4 +43,8 @@ export class CollectionSearchComponent {
   @Output() changeSearchTerm: EventEmitter<string> = new EventEmitter<string>();
   collectionName: CollectionNameEnum = CollectionNameEnum.characters;
   collectionNamesOptions = collectionNames;
+
+  onChangeSearch({ value }: any): void {
+    this.changeSearchTerm.emit(value);
+  }
 }
