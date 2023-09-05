@@ -13,15 +13,15 @@ import {
 
 @Component({
   template: `
-    <div class="mx-auto min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+    <div class="mx-auto min-w-0 max-w-6xl px-4 pt-4 md:px-12">
       <app-collection-search
         (changeSearchTerm)="searchTerm$.next($event)"
-        (changeCollectionEnum)="changeCollection($event)"
+        (changeCollectionEnum)="resetObservable(); collectionName$.next($event)"
       ></app-collection-search>
       <div
         infiniteScroller
-        class="flex flex-wrap"
-        [disabled]="disablePagination || loading"
+        class="flex flex-wrap justify-center gap-8"
+        [disablePagination]="disablePagination || loading"
         *ngIf="collection$ | async as collections"
         (nextBatch)="goToPage(currPage + 1)"
       >
@@ -39,9 +39,10 @@ export class CardsComponent {
   private collectionService = inject(CollectionService);
 
   currPage = 1;
+  pageSize = 20;
+  reset = true;
   loading = true;
   disablePagination = false;
-  changedCollection = true;
   searchTerm$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   currentPage$: BehaviorSubject<number> = new BehaviorSubject<number>(
     this.currPage,
@@ -52,7 +53,10 @@ export class CardsComponent {
   collection$ = combineLatest([
     this.collectionName$,
     this.currentPage$,
-    this.searchTerm$.pipe(debounce(() => interval(400))),
+    this.searchTerm$.pipe(
+      debounce(() => interval(400)),
+      tap(() => this.resetObservable()),
+    ),
   ]).pipe(
     tap(() => (this.loading = true)),
     switchMap(([collection, page, term]) =>
@@ -61,11 +65,11 @@ export class CardsComponent {
         .pipe(tap(() => (this.loading = false))),
     ),
     scan((acc: any[], data: any) => {
-      if (this.changedCollection) {
-        this.changedCollection = false;
+      if (this.reset) {
+        this.reset = false;
         return data;
       }
-      this.disablePagination = !data?.length;
+      this.disablePagination = data?.length !== this.pageSize;
       return [...acc, ...data];
     }, []),
   );
@@ -75,9 +79,9 @@ export class CardsComponent {
     this.currentPage$.next(this.currPage);
   }
 
-  changeCollection(collection: CollectionNameEnum): void {
-    this.changedCollection = true;
-    this.collectionName$.next(collection);
+  resetObservable(): void {
+    this.reset = true;
+    this.disablePagination = false;
     this.goToPage(1);
   }
 }

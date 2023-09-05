@@ -10,7 +10,7 @@ import { NgFor } from '@angular/common';
   selector: 'app-collection-search',
   imports: [NgFor],
   template: `
-    <div class="relative mt-2 rounded-md shadow-sm mb-4">
+    <div class="relative mt-2 rounded-md shadow-sm mb-8">
       <input
         type="text"
         name="collection"
@@ -18,7 +18,7 @@ import { NgFor } from '@angular/common';
         [value]=""
         (keydown)="onChangeSearch($event.target)"
         class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
-        placeholder="Search in your collection"
+        placeholder="Search in this collection"
       />
       <div class="absolute inset-y-0 right-0 flex items-center">
         <label for="currency" class="sr-only">Currency</label>

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
   host: { class: 'block h-[8rem]' },
   selector: 'app-nav',
   standalone: true,
-  imports: [NgFor, RouterLink],
+  imports: [NgFor, NgClass, RouterLink],
   template: `
     <nav
       class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600"
@@ -24,7 +24,7 @@ import { RouterLink } from '@angular/router';
         <div class="flex md:order-2">
           <a
             href="https://github.com/viniciusschuelter/dattebayo"
-            class="text-gray-900 hover:text-gray-600 dark:hover:text-white"
+            class="text-gray-900 hover:text-gray-600 dark:hover:text-white pr-3"
           >
             <svg
               class="w-8 h-8"
@@ -42,13 +42,10 @@ import { RouterLink } from '@angular/router';
             <span class="sr-only">GitHub account</span>
           </a>
           <button
-            data-collapse-toggle="navbar-sticky"
             type="button"
             class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-sticky"
-            aria-expanded="false"
+            (click)="openedMenu = true"
           >
-            <span class="sr-only">Open main menu</span>
             <svg
               class="w-5 h-5"
               aria-hidden="true"
@@ -67,8 +64,8 @@ import { RouterLink } from '@angular/router';
           </button>
         </div>
         <div
-          class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-          id="navbar-sticky"
+          class="items-center justify-between w-full md:flex md:w-auto md:order-1"
+          [ngClass]="{ hidden: !openedMenu }"
         >
           <ul
             class="date-font flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
@@ -77,7 +74,7 @@ import { RouterLink } from '@angular/router';
               <a
                 [routerLink]="[item.link]"
                 [class]="menuItemClass"
-                aria-current="page"
+                (click)="openedMenu = false"
                 >{{ item.name }}</a
               >
             </li>
@@ -94,6 +91,8 @@ export class NavComponent {
     { name: 'Cards', link: '/cards' },
     { name: 'Support', link: '/support' },
   ];
+
+  openedMenu = false;
 
   menuItemClass =
     'block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-400 md:p-0 md:dark:hover:text-orange-200 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700';

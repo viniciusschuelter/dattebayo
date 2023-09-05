@@ -1,8 +1,8 @@
 import {
   Directive,
-  ElementRef,
   EventEmitter,
   Input,
+  OnDestroy,
   Output,
 } from '@angular/core';
 
@@ -10,18 +10,23 @@ import {
   standalone: true,
   selector: '[infiniteScroller]',
 })
-export class InfiniteScrollerDirective {
-  @Input() disabled = false;
+export class InfiniteScrollerDirective implements OnDestroy {
+  @Input() disablePagination = false;
   @Input() percentageForNext = 10;
   @Output() nextBatch: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private el: ElementRef) {
+  constructor() {
     this.initScrollObserver();
+  }
+
+  ngOnDestroy(): void {
+    //@ts-ignore
+    document.removeAllListeners();
   }
 
   initScrollObserver(): void {
     document.addEventListener('scrollend', ({ target }) => {
-      if (this.disabled) return;
+      if (this.disablePagination) return;
       this.checkIfReachTheEnd(target);
     });
   }

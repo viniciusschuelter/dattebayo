@@ -6,9 +6,9 @@ import { CollectionNameEnum } from '../../interfaces/shared.interface';
   standalone: true,
   selector: 'app-collection-card',
   template: `
-    <div class="flex-shrink-0 w-[320px] h-100 m-3 rounded-3xl relative">
+    <div class="flex-shrink-0 w-[320px] h-[240px] h-100 rounded-lg relative">
       <img
-        class="w-full h-full rounded-3xl"
+        class="w-full h-full rounded-lg"
         [src]="
           collection.images && collection.images[0]
             ? collection.images[0]
@@ -17,9 +17,9 @@ import { CollectionNameEnum } from '../../interfaces/shared.interface';
         alt="img"
       />
       <div
-        class="w-full absolute bottom-0 p-4 text-white backdrop-blur-lg rounded-b-3xl"
+        class="w-full absolute bottom-0 px-4 py-1 text-white backdrop-blur-xl rounded-b-lg"
       >
-        <div class="flex justify-between text-xl">
+        <div class="flex justify-center text-xl">
           <h1>{{ collection.name }}</h1>
           <span class="flex"> </span>
         </div>
