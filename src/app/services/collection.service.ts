@@ -13,9 +13,12 @@ export class CollectionService {
 
   getAllCollection(
     collectionName: CollectionNameEnum,
+    page: number,
     searchTerm?: string,
   ): Observable<CharacterInterface[]> {
-    const queryParams = searchTerm && `?name=${searchTerm}`;
+    let queryParams = '';
+    if (page) queryParams += `?page=${page}`;
+    if (searchTerm) queryParams += `?name=${searchTerm}`;
     return this.http
       .get<any>(
         `https://dattebayo-api.onrender.com/${collectionName}${

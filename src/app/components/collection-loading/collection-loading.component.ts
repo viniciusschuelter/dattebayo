@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
     <div
       class="flex flex-col justify-center items-center date-font loading-overlay"
     >
-      <img class="w-[24rem]" alt="loading" src="assets/images/loading.gif" />
-      <h1 class="text-4xl text-orange-700 ">Loading...</h1>
+      <img class="w-[16rem]" alt="loading" src="assets/images/loading.gif" />
+      <h1 class="text-4xl text-orange-800 ">Loading...</h1>
     </div>
   `,
   styles: [
