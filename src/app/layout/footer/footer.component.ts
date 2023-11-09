@@ -5,10 +5,10 @@ import { Component } from '@angular/core';
   selector: 'app-footer',
   standalone: true,
   template: `
-    <footer class="bg-white dark:bg-gray-900 pt-4">
+    <footer class="pt-4 dark:text-slate-400 bg-white dark:bg-slate-900">
       <div class="mx-auto w-full">
         <div
-          class="px-4 py-6 bg-gray-100 dark:bg-gray-700 flex items-center justify-between"
+          class="px-4 py-6 dark:text-slate-400 border-t border-gray-200 dark:border-gray-600 flex items-center justify-between"
         >
           <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center"
             >© 2023 <a href="#">Dattebayo™</a>. All Rights Reserved.

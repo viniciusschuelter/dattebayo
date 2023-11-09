@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dattebayo",
+            "outputPath": "dist/dattebayo/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -106,6 +106,61 @@
               "src/**/*.html"
             ]
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/dattebayo/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "dattebayo:build:development",
+              "serverTarget": "dattebayo:server:development"
+            },
+            "production": {
+              "browserTarget": "dattebayo:build:production",
+              "serverTarget": "dattebayo:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dattebayo:build:production",
+              "serverTarget": "dattebayo:server:production"
+            },
+            "development": {
+              "browserTarget": "dattebayo:build:development",
+              "serverTarget": "dattebayo:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
