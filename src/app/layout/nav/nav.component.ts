@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { NgClass, NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { SwitcherThemeComponent } from '../../components/switcher-theme/switcher-theme.component';
 
 @Component({
   host: { class: 'block h-[8rem]' },
   selector: 'app-nav',
   standalone: true,
-  imports: [NgFor, NgClass, RouterLink],
+  imports: [NgFor, NgClass, RouterLink, SwitcherThemeComponent],
   template: `
     <nav
       class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600"
@@ -22,9 +23,10 @@ import { RouterLink } from '@angular/router';
           />
         </a>
         <div class="flex md:order-2">
+          <app-switcher-theme></app-switcher-theme>
           <a
             href="https://github.com/viniciusschuelter/dattebayo"
-            class="text-gray-900 hover:text-gray-600 dark:hover:text-white pr-3"
+            class="text-gray-400 hover:text-gray-900 dark:hover:text-white pr-3"
           >
             <svg
               class="w-8 h-8"
