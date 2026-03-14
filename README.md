@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
-Please, checkout our [Dattebayo API](https://github.com/angular/angular-cli), contribute to it as much as possible.
+Please, checkout our [Dattebayo API](https://github.com/viniciusschuelter/dattebayo-api), contribute to it as much as possible.
 
 ###Dattebayo: Your Ultimate Naruto Anime API
 Welcome to Dattebayo, your ultimate destination for all things Naruto anime! Our platform is dedicated to providing developers, fans, and enthusiasts with a comprehensive API that dives deep into the vibrant and captivating world of Naruto.
